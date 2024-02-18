@@ -22,3 +22,33 @@ int main(int argc, char **argv)
     write(1, "\n", 1);
     return (0);
 }
+
+//other solutions
+void alpha_mirror(char *str)
+{
+	int i = 0;
+	int dis_to_a = 0; // how far is it now to a. distance to a
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			dis_to_a = str[i] - 'a';
+			str[i] = 'z' - dis_to_a;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			dis_to_a = str[i] - 'A';
+			str[i] = 'Z' - dis_to_a;
+		}
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
+int main(int argc, char **argv)
+{
+	if (argc == 2)
+		alpha_mirror(argv[1]);
+	write(1, "\n", 1);
+	return (0);
+}
