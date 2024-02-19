@@ -10,11 +10,13 @@ void ft_putchar(char c) {
 int word_count(char *str) {
     int i = 0;
     int count = 0;
-    while (str[i]) {
-        // 単語の開始を検出
+    while (str[i]) 
+    {
         //1こ前の文字が空白だったらカウントする
         //一番最初の文字も数えるためにi == 0も条件にいれる
-        if ((str[i-1] == ' ' || str[i-1] == '\t' || i == 0) && (str[i] != ' ' && str[i] != '\t')) {
+        if ((str[i-1] == ' ' || str[i-1] == '\t' || i == 0) 
+        && (str[i] != ' ' && str[i] != '\t')) 
+        {
             count++;
         }
         i++;
