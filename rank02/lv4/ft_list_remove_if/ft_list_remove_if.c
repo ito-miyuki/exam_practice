@@ -21,7 +21,6 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
     }
 }
 
-
 //　github からのsolution
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
@@ -39,6 +38,4 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
     cur = *begin_list;
     ft_list_remove_if(&cur->next, data_ref, cmp);
 }
-
-//練習
 

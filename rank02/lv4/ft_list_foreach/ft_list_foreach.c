@@ -11,3 +11,13 @@ void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 }
 
 
+//練習
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+    while (begin_list != NULL)
+    {
+        if (begin_list->data)
+            (*f)(begin_list->data); //ここdataつけるの忘れないで！ifでbegin_list->data確認してるのに使わないの変じゃん！
+        begin_list = begin_list->next;
+    }
+}

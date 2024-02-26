@@ -1,5 +1,6 @@
 #include <unistd.h> // For write
 
+//これだけしかpassしない
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -23,31 +24,30 @@ void	ft_print_first_word(char *str, int begin_space)
 
 void	rostring(char *str)
 {
-	int	idx;
+	int	i;
 	int	begin_space;
 
 	begin_space = 0;
 	while (str[begin_space] != '\0' && is_space(str[begin_space]))
 		begin_space++;
-	idx = begin_space;
-	while (str[idx] != '\0' && !is_space(str[idx]))
-		idx++;
-	while (str[idx] != '\0')
+	i = begin_space;
+	while (str[i] != '\0' && !is_space(str[i]))
+		i++;
+	while (str[i] != '\0')
 	{
-		if (str[idx] != '\0' && !is_space(str[idx]) && is_space(str[idx - 1]))
+		if (str[i] != '\0' && !is_space(str[i]) && is_space(str[i - 1]))
 		{
-			while (str[idx] != '\0' && !is_space(str[idx]))
+			while (str[i] != '\0' && !is_space(str[i]))
 			{
-				ft_putchar(str[idx]);
-				idx++;
+				ft_putchar(str[i]);
+				i++;
 			}
 			ft_putchar(' ');
 		}
-		idx++;
+		i++;
 	}
 	ft_print_first_word(str, begin_space);
 }
-
 int	main(int argc, char **argv)
 {
 	if (argc > 1)

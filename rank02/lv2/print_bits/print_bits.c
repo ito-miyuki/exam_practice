@@ -1,5 +1,18 @@
-// 覚えて！
+//覚えて！
+void	print_bits(unsigned char octet)
+{
+	int				idx;
+	unsigned char	bit;
 
+	idx = 8;
+	while (idx--)
+	{
+		bit = ((octet >> idx & 1) + '0');
+		write(1, &bit, 1);
+	}
+}
+
+// other solution
 void	print_bits(unsigned char octet)
 {
 	int	bit;
@@ -21,27 +34,5 @@ void	print_bits(unsigned char octet)
 			octet = octet - bit;
 			bit = bit / 2;
 		}
-	}
-}
-
-//other solutions
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	print_bits(unsigned char octet)
-{
-	int				idx;
-	unsigned char	mask;
-	unsigned char	bit;
-
-	idx = 7;
-	mask = 1;
-	while (idx >= 0)
-	{
-		bit = (((octet >> idx) & mask) + '0');
-		ft_putchar(bit);
-		idx--;
 	}
 }
