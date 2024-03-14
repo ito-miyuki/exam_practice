@@ -40,7 +40,7 @@ char	*ft_itoa(int nbr)
 	{
 		while (nbr > 0)
 		{
-			res[num_len - 1] = nbr % 10 + '0';
+			res[num_len - 1] = nbr % 10 + '0'; //小さい桁から書いていく
 			nbr = nbr / 10;
 			num_len--;
 		}

@@ -45,7 +45,7 @@ char    **ft_split(char *str)
 		{
 			word_pos = i;
 			while (str[word_pos] != '\0' && str[word_pos] != ' ' && str[word_pos] != '\t')
-				word_pos++;
+				word_pos++; //単語の区切りを見つけたらword potion - 1分のメモリを確保
 			res[arr_i] = malloc(sizeof(char) * (word_pos - i + 1)); //iから区切り文字を見つけるまでどれくらい移動したか
 			if (!res[arr_i])
 				return (NULL);

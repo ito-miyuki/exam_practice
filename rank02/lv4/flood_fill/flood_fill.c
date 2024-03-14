@@ -40,5 +40,5 @@ void fill(char **tab, t_point size, t_point cur, char to_fill)
 }
 void	flood_fill(char **tab, t_point size, t_point begin)
 {
-	fill(tab, size, tab[begin.y][begin.x]);
+	fill(tab, size, begin, tab[begin.y][begin.x]);
 }
