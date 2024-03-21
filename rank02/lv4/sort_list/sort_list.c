@@ -1,3 +1,12 @@
+// 覚えて！
+/*
+lstのtempを作って、tempの指しているものをlstにする
+lstの次がヌルじゃない間、cmp関数をlstのデータと次のデータで実行して、
+その結果が０ならスワップする
+スワップしたらlstはtempが指しているものに変更(lstを最新に更新)
+スワップが必要ないなら、次のデータに進む
+ループが終わったら、tempが持ってるものをlstに入れてlstを返して終了
+*/
 #include <stdlib.h>
 #include "list.h"
 
@@ -28,6 +37,26 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	lst = tmp;
 	return (lst);
 }
+
+//勉強
+
+// t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+// {
+// 	t_list *temp;
+
+// 	while(lst->next)
+// 	{
+// 		if ((*cmp)(lst->data, lst->next->data) == 0)
+// 		{
+// 			ft_swap(&lst->data, &lst->next->data);
+// 			lst = temp;
+// 		}
+// 		else
+// 			lst = lst->next;
+// 	}
+// 	lst = temp;
+// 	return (lst);
+// }
 
 
 // other solutions

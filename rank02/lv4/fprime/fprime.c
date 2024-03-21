@@ -32,33 +32,6 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-//練習
-void ft_prime(char *str)
-{
-	int num = atoi(str);
-	int divider = 2;
-	while (divider <= num)
-	{
-		if (num % divider == 0)
-		{
-			printf("%d", divider);
-			if (divider != num)
-				printf("*");
-			num = num / divider;
-		}
-		else
-			divider++;
-	}
-}
-
-int main(int argc, char **argv)
-{
-	if (argc == 2)
-		ft_prime(argv[1]);
-	printf("\n");
-	return (0);
-}
-
 
 // #include <stdio.h>
 // #include <stdlib.h>
@@ -69,7 +42,7 @@ int main(int argc, char **argv)
 //     int divider = 2;
 //     if (num == 1) {
 //         printf("1");
-//         return;
+//         return;pwd
 //     }
 //     while (num >= divider) {
 //         if (num % divider == 0) {

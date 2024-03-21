@@ -9,7 +9,7 @@ int is_power_of_2(unsigned int n)
 		return (1);
 	if (n < 0)
 		return (0);
-	while  (n > num)
+	while (n > num)
 		num = num * 2;
 	if (num == n)
 		return (1);
@@ -23,3 +23,18 @@ int is_power_of_2(unsigned int n)
 // 	int res = is_power_of_2(n);
 // 	printf("%d\n", res);
 // }
+
+int is_power_of_2(unsigned int n)
+{
+	unsigned int long num;
+	num = 1;
+	if (n == 1)
+		return (1);
+	if (n < 0)
+		return (0);
+	while (n > num)
+		num = num * 2;
+	if (num == n)
+		return (1);
+	return (0);
+}

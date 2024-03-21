@@ -1,5 +1,6 @@
 /*
 check if one of the char from *reject is in *s
+rejectの中にあるいずれかの文字がsにあったら
 if it is -> return index of the first occer char
 if not -> return length of the *s
 */
@@ -11,7 +12,7 @@ size_t	ft_strcspn(const char *s, const char *reject)
     int i = 0;
     int j;
 
-    while (s[i] != '\0')
+    while (s[i] != '\0') // Sのループが先
     {
         j = 0;
         while (reject[j] != '\0')

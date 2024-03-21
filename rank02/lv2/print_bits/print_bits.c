@@ -7,10 +7,13 @@ void	print_bits(unsigned char octet)
 	idx = 8;
 	while (idx--)
 	{
-		bit = ((octet >> idx & 1) + '0');
+		bit = ((octet >> idx & 1) + '0'); //octetをiだけ右にシフト　&１をして　'0'を足して文字にする
 		write(1, &bit, 1);
 	}
 }
+
+
+
 
 // other solution
 void	print_bits(unsigned char octet)

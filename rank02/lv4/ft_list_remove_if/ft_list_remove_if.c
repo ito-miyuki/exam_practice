@@ -11,7 +11,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 	if (cmp(cur->data, data_ref) == 0) //現在のノードの「データ」が参照データと等しい場合
 	{
 		*begin_list = cur->next; //begin listがさしているものをcur(temp)を使って次のものにし、
-		free(cur); // //トップだったものを削除
+		free(cur); //トップだったものを削除
 		ft_list_remove_if(begin_list, data_ref, cmp); // 更新されたリスト（現在の要素が削除された後のリスト）に対して同じ処理を繰り返す
 	}
     else
@@ -39,3 +39,19 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
     ft_list_remove_if(&cur->next, data_ref, cmp);
 }
 
+//練習
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+    if (begin_list == NULL || *begin_list == NULL)
+        return ;
+    
+    t_list *cur = *begin_list;
+    if (cmp(cur->data, data_ref) == 0)
+    {
+        *begin_list = cur->next;
+        free(cur);
+        ft_list_remove_if(begin_list, data_ref, cmp);
+    }
+    else
+        ft_list_remove_if(&cur->next, data_ref, cmp);
+}

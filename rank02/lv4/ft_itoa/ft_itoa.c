@@ -100,3 +100,9 @@ char	*ft_itoa(int nbr)
 // 	char *res =  ft_itoa(nbr);
 // 	printf("%s\n", res);
 // }
+
+
+///
+
+
+

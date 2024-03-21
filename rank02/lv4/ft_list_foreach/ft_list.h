@@ -12,3 +12,5 @@ typedef struct    s_list
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *));
 
 #endif
+
+
