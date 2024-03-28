@@ -1,6 +1,8 @@
 /*
 - first of all, skip space/tabs untill the first word starts
 - then, start printing letters untill it reaches space, tab or null terminator
+- 最初のワード見つけるまでスキップ
+- そしたら、スペース、タブまたはヌルにあたるまでプリントしつづける
 */
 
 #include <unistd.h>
