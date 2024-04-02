@@ -19,6 +19,7 @@ int word_count(char *str)
 			counter++;
 		i++;
 	}
+	printf("%d\n", counter);
 	return (counter);
 }
 
@@ -31,7 +32,8 @@ char    **ft_split(char *str)
 	int res_i = 0;
 	int word_pos;
 	char **res = malloc(sizeof(char *) * (word_len + 1));
-	if (!res)
+	printf("%d\n", word_len);
+		if (!res)
 		return (NULL);
 	while (str[i] != '\0')
 	{
@@ -63,14 +65,14 @@ char    **ft_split(char *str)
 #include <stdio.h>
 
 int main(void) {
-    char *str = "apple banana pear cherry"; 
+    char *str = "  starting and ending   "; 
     char **words = ft_split(str); 
 
-    for (int i = 0; words[i] != NULL; i++) {
+    for (int i = 0; words[i]; i++) {
         printf("Word %d: %s\n", i + 1, words[i]);
     }
 
-    for (int i = 0; words[i] != NULL; i++) {
+    for (int i = 0; words[i]; i++) {
         free(words[i]);
     }
     free(words);
@@ -79,77 +81,48 @@ int main(void) {
 }
 
 
-//練習
+//other solution
 
-// how many words?
-// what is the str_len of each words?
-// allocate memory for 2d array
-// alocate memory for each elements in 2d array
-
-// int words_count(char *str)
+// char *ft_strncpy(char *s1, char *s2, int n)
 // {
-// 	int i = 0;
-// 	int count = 0;
-// 	while (str[i] != '\0')
-// 	{
-// 		if (count == 0 || ((str[i] != ' ' && str[i] != '\t') && (str[i - 1] == ' ' || str[i - 1] == '\t')))
-// 			count++;
-// 		i++;
-// 	}
-// 	return (count);
+// 	int i = -1;
+
+// 	while (++i < n && s2[i])
+// 		s1[i] = s2[i];
+// 	s1[i] = '\0';
+// 	return (s1);
 // }
 
-
-// char **ft_split(char *str)
+// char	**ft_split(char *str)
 // {
-// 	int word_num;
-// 	word_num= words_count(str);
-
 // 	int i = 0;
-// 	char **res;
-
-// 	int y_i = 0;
-// 	int x_i = 0;
-
-// 	int word_pos = 0;
-// 	res = malloc(sizeof(char *) * (word_num + 1));
-// 	if (!res)
-// 		return NULL;
-// 	while (str[i] != '\0')
+// 	int j = 0;
+// 	int k = 0;
+// 	int wc = 0;
+// 	while (str[i])
 // 	{
-// 		while (str[i] == ' ' || str[i] == '\t')
+// 		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
 // 			i++;
-
-// 		word_pos = i;
-// 		while (str[word_pos] != ' ' && str[word_pos] != '\t'&& str[word_pos] != '\0')
-// 			word_pos++;
-// 		res[y_i] = malloc(sizeof(char) * (word_pos - i + 1));
-// 		while (i < word_pos)
+// 		if (str[i])
+// 			wc++;
+// 		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+// 			i++;
+// 	}
+// 	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+// 			i++;
+// 		j = i;
+// 		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+// 			i++;
+// 		if (i > j)
 // 		{
-// 			res[y_i][x_i] = str[i];
-// 			x_i++;
-// 			i++;
+// 			out[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
+// 			ft_strncpy(out[k++], &str[j], i - j);
 // 		}
-// 		res[y_i][x_i] = '\0';
-// 		y_i++;
-// 		x_i = 0;
 // 	}
-// 	res[y_i] = NULL;
-// 	return (res);
-// }
-
-// int main(void) {
-//     char *str = "apple banana pear cherry"; 
-//     char **words = ft_split(str); 
-
-//     for (int i = 0; words[i] != NULL; i++) {
-//         printf("Word %d: %s\n", i + 1, words[i]);
-//     }
-
-//     for (int i = 0; words[i] != NULL; i++) {
-//         free(words[i]);
-//     }
-//     free(words);
-
-//     return 0;
+// 	out[k] = NULL;
+// 	return (out);
 // }

@@ -26,7 +26,7 @@ void sort_int_tab(int *tab, unsigned int size)
 		i = 0;
 		while (i < (size - 1)) //配列内の要素を全て見ていく
 		{
-			if (tab[i] > tab[i + 1]) //右にある数字の方が大きいなら
+			if (tab[i] > tab[i + 1]) //右にある数字の方が小さいなら
 				ft_swap(&tab[i], &tab[i + 1]); //並び替える
 			i++;
 		}
@@ -35,7 +35,20 @@ void sort_int_tab(int *tab, unsigned int size)
 }
 
 //勉強
-
+void sort_int_tab(int *tab, unsigned int size)
+{
+	int i = 0;
+	int iterate = 0;
+	if (size <= 1)
+		return ;
+	while (iterate < size)
+	{
+		if (tab[i] > tab[i + 1])
+			ft_swap(&tab[i], &tab[i + 1]);
+		i++;
+	}
+	iterate++;
+}
 
 // #include <stdio.h>
 // int main()
