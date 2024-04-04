@@ -13,8 +13,6 @@ void	print_bits(unsigned char octet)
 }
 
 
-
-
 // other solution
 void	print_bits(unsigned char octet)
 {

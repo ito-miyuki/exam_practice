@@ -1,5 +1,6 @@
 // use "unsigned int long", otherwise it will crash when ag is negative num
 // 1 is a power of 2, you should remeber that!
+// １から２をひたすらかけて行って、最終的にその数字になったらそれはべき乗
 
 int is_power_of_2(unsigned int n)
 {

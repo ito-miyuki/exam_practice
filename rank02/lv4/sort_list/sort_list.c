@@ -39,24 +39,24 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 }
 
 //勉強
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+{
+	t_list * temp;
 
-// t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
-// {
-// 	t_list *temp;
-
-// 	while(lst->next)
-// 	{
-// 		if ((*cmp)(lst->data, lst->next->data) == 0)
-// 		{
-// 			ft_swap(&lst->data, &lst->next->data);
-// 			lst = temp;
-// 		}
-// 		else
-// 			lst = lst->next;
-// 	}
-// 	lst = temp;
-// 	return (lst);
-// }
+	temp = lst;
+	while (lst->next != NULL)
+	{
+		if ((*cmp)(lst->data, lst->next->data) == 0)
+		{
+			ft_swap(&lst->data, &lst->next->data);
+			lst = temp;
+		}
+		else
+			lst = lst->next;
+	}
+	lst = temp;
+	return (lst);
+}
 
 
 // other solutions

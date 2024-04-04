@@ -35,39 +35,35 @@ int     *ft_range(int start, int end)
 	return (res);
 }
 
-
-// 練習
-
-
 // #include <stdio.h>
 // #include <stdlib.h>
 
 // // ft_range 関数のプロトタイプ宣言
 // int *ft_range(int start, int end);
 
-// int main() {
-//     int start = 0; // 開始値
-//     int end = 0;   // 終了値
+int main() {
+    int start = -2; // 開始値
+    int end = 1;   // 終了値
 
-//     // ft_range 関数を呼び出して結果を取得
-//     int *result = ft_range(start, end);
+    // ft_range 関数を呼び出して結果を取得
+    int *result = ft_range(start, end);
 
-//     // 結果を出力
-//     if (result == NULL) {
-//         printf("メモリの割り当てに失敗しました。\n");
-//     } else {
-//         printf("result:[");
-//         // 配列の要素を出力
-//         for (int i = 0; i < (end - start + 1); i++) {
-//             printf("%d", result[i]);
-//             if (i != (end - start)) {
-//                 printf(", ");
-//             }
-//         }
-//         printf("]\n");
-//         // 結果のメモリを解放
-//         free(result);
-//     }
+    // 結果を出力
+    if (result == NULL) {
+        printf("メモリの割り当てに失敗しました。\n");
+    } else {
+        printf("result: [");
+        // 配列の要素を出力
+        for (int i = 0; i < abs(end - start) + 1; i++) {
+            printf("%d", result[i]);
+            if (i != abs(end - start)) {
+                printf(", ");
+            }
+        }
+        printf("]\n");
+        // 結果のメモリを解放
+        free(result);
+    }
 
-//     return 0;
-// }
+    return 0;
+}

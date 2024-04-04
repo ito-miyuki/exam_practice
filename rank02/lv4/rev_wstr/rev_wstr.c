@@ -67,10 +67,6 @@
 // }
 
 //other solution
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 int	is_space(char c)
 {
@@ -81,26 +77,26 @@ int	is_space(char c)
 
 void	rev_wstr(char *str)
 {
-	int	idx;
+	int	i;
 	int	j;
 	int	first_word;
 
-	idx = 0;
+	i = 0;
 	first_word = 1;
-	while (str[idx] != '\0')
-		idx++;
-	while (idx >= 0)
+	while (str[i] != '\0')
+		i++;
+	while (i >= 0)
 	{
-		while (idx >= 0 && (str[idx] == '\0' || is_space(str[idx])))
-			idx--;
-		j = idx;
+		while (i >= 0 && (str[i] == '\0' || is_space(str[i])))
+			i--;
+		j = i;
 		while (j >= 0 && !is_space(str[j]))
 			j--;
 		if (first_word == 0)
-			ft_putchar(' ');
-		write(1, str + j + 1, idx - j);
+			write(1, " ", 1);
+		write(1, str[j + 1], i - j);
 		first_word = 0;
-		idx = j;
+		i = j;
 	}
 }
 
@@ -108,6 +104,6 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		rev_wstr(argv[1]);
-	ft_putchar('\n');
+	write(1, "\n", 1);
 	return (0);
 }
