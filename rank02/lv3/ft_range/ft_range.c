@@ -35,6 +35,10 @@ int     *ft_range(int start, int end)
 	return (res);
 }
 
+
+// 練習
+
+
 // #include <stdio.h>
 // #include <stdlib.h>
 
