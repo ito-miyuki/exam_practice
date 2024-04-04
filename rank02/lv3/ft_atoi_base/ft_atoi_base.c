@@ -1,88 +1,90 @@
 #include <stdio.h>
 
-// int	ft_tolower(int c)
-// {
-// 	if (c >= 65 && c <= 90)
-// 		c = c + 32;
-// 	return (c);
-// }
+char	to_lower(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
+}
 
-// int	in(char c, char *base, int id)
-// {
-// 	int	i;
+int get_digit(char c, int digits_in_base)
+{
+	int max_digit;
+	if (digits_in_base <= 10)
+		max_digit = digits_in_base + '0';
+	else
+		max_digit = digits_in_base - 10 + 'a';
 
-// 	i = 0;
-// 	while (base[i] != '\0' && i < id)
-// 	{
-// 		if (base[i] == c)
-// 			return (1);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	if (c >= '0' && c <= '9' && c <= max_digit)
+		return (c - '0');
+	else if (c >= 'a' && c <= 'f' && c <= max_digit)
+		return (10 + c - 'a');
+	else
+		return (-1);
+}
 
-// int	ft_atoi_base(const char *str, int str_base)
-// {
-// 	int	idx;
-// 	int	sign;
-// 	int	result;
+int ft_atoi_base(const char *str, int str_base)
+{
+	int result = 0;
+	int sign = 1;
+	int digit;
 
-// 	idx = 0;
-// 	sign = 1;
-// 	result = 0;
-// 	if (str[idx] == '-')
-// 	{
-// 		sign = -1;
-// 		idx++;
-// 	}
-// 	while (str[idx] != '\0' && in(ft_tolower(str[idx]), "0123456789abcdef", str_base))
-// 	{
-// 		result *= str_base;
-// 		if (str[idx] >= '0' && str[idx] <= '9')
-// 			result += str[idx] - '0';
-// 		else if (str[idx] >= 'A' && str[idx] <= 'Z')
-// 			result += str[idx] - '7';
-// 		else if (str[idx] >= 'a' && str[idx] <= 'z')
-// 			result += str[idx] - 'W';
-// 		idx++;
-// 	}
-// 	return (result * sign);
-// }
-/*
+	if (*str == '-')
+	{
+		sign = -1;
+		++str;
+	}
+
+	while ((digit = get_digit(to_lower(*str), str_base)) >= 0)
+	{
+		result = result * str_base;
+		result = result + (digit * sign);
+		++str;
+	}
+	return (result);
+}
+
+
+#include <stdio.h>
 int main()
 {
     const char *str = "Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.";
     int str_base = 16;
 
     int result = ft_atoi_base(str, str_base);
-    printf("Converted value of '%s' in base %d is %d\n", str, str_base, result);
+    printf("%d\n", result);
 
     return 0;
 }
 
+//this one below didn't go pass Norminette
+
+/*
+atoiとほとんど同じだけど res = res * 10 + (str[i] - '0');の部分を変更
+かける数字がbaseによって変わるから、最初にres = res * baseをして、
+その後はif条件文
 */
+// int	ft_atoi_base(const char *str, int str_base)
+// {
+// 	int i = 0;
+//     int neg = 1;
+//     int res = 0;
 
-int	ft_atoi_base(const char *str, int str_base)
-{
-	int i = 0;
-    int neg = 1;
-    int res = 0;
-
-    if (str[i] == '-')
-    {
-        neg = -neg;
-        i++;
-    }
-    while (str[i] != '\0')
-    {
-        res = res * str_base;
-        if (str[i] >= '0' && str[i] <= '9')
-            res = res + str[i] - '0';
-        else if (str[i] >= 'A' && str[i] <= 'Z')
-            res = res + str[i] - '7';
-        else if (str[i] >= 'a' && str[i] <= 'z')
-            res = res + str[i] - 'W';
-        i++;
-    }
-    return (res * neg);
-}
+//     if (str[i] == '-')
+//     {
+//         neg = -neg;
+//         i++;
+//     }
+//     while (str[i] != '\0')
+//     {
+//         res = res * str_base;
+//         if (str[i] >= '0' && str[i] <= '9')
+//             res = res + str[i] - '0';
+//         else if (str[i] >= 'A' && str[i] <= 'Z')
+//             res = res + str[i] - '7';
+//         else if (str[i] >= 'a' && str[i] <= 'z')
+//             res = res + str[i] - 'W';
+//         i++;
+//     }
+//     return (res * neg);
+// }

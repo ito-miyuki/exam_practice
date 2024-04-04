@@ -19,7 +19,6 @@ int word_count(char *str)
 			counter++;
 		i++;
 	}
-	printf("%d\n", counter);
 	return (counter);
 }
 
@@ -27,22 +26,22 @@ char    **ft_split(char *str)
 {
 
 	int word_len = word_count(str);
+	printf("word_len is %d\n", word_len);
 	int arr_i = 0;
 	int i = 0;
 	int res_i = 0;
-	int word_pos;
+	int word_pos = 0;
 	char **res = malloc(sizeof(char *) * (word_len + 1));
-	printf("%d\n", word_len);
-		if (!res)
+	if (!res)
 		return (NULL);
-	while (str[i] != '\0')
+	while (str[i] != '\0') //strでループ
 	{
-		while (str[i] == ' ' || str[i] == '\t')
+		while (str[i] == ' ' || str[i] == '\t') //空白文字は飛ばす
 			i++;
 		if (str[i] != '\0')
 		{
 			word_pos = i;
-			while (str[word_pos] != '\0' && str[word_pos] != ' ' && str[word_pos] != '\t')
+			while (str[word_pos] != '\0' && str[word_pos] != ' ' && str[word_pos] != '\t') //文字が続いている間word_posを進める
 				word_pos++; //単語の区切りを見つけたらword potion - 1分のメモリを確保
 			res[arr_i] = malloc(sizeof(char) * (word_pos - i + 1)); //iから区切り文字を見つけるまでどれくらい移動したか
 			if (!res[arr_i])
@@ -62,10 +61,12 @@ char    **ft_split(char *str)
 	return (res);
 }
 
+//
+
 #include <stdio.h>
 
 int main(void) {
-    char *str = "  starting and ending   "; 
+    char *str = "starting and ending   "; 
     char **words = ft_split(str); 
 
     for (int i = 0; words[i]; i++) {
