@@ -7,6 +7,17 @@ char	to_lower(char c)
 	return (c);
 }
 
+// // これでもいけるかも シミュレーターはOK
+// int get_digit(char c, int base)
+// {
+//     if (c >= '0' && c <= '9')
+//         return (c - '0');
+//     else if (c >= 'a' && c <= 'f')
+//         return (10 + c - 'a');
+//     else
+//         return (-1);
+// }
+
 int get_digit(char c, int digits_in_base)
 {
 	int max_digit;
