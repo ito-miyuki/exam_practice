@@ -1,10 +1,10 @@
 
 int		max(int* tab, unsigned int len)
 {
-	int max_num;
-	int i = 0;
 	if (len == 0)
 		return (0);
+	int max_num;
+	int i = 0;
 	max_num = tab[0];
 	while (i < len)
 	{
@@ -14,6 +14,8 @@ int		max(int* tab, unsigned int len)
 	}
 	return (max_num);
 }
+
+
 #include <stdio.h>
 int main()
 {

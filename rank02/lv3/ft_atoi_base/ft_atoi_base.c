@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-char	to_lower(char c)
+char to_lower(char c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
+		c += 32;
 	return (c);
 }
 
@@ -74,41 +74,41 @@ atoiとほとんど同じだけど res = res * 10 + (str[i] - '0');の部分を�
 かける数字がbaseによって変わるから、最初にres = res * baseをして、
 その後はif条件文
 */
-int	ft_atoi_base(const char *str, int str_base)
-{
-	int i = 0;
-    int neg = 1;
-    int res = 0;
+// int	ft_atoi_base(const char *str, int str_base)
+// {
+// 	int i = 0;
+//     int neg = 1;
+//     int res = 0;
 
-    if (str[i] == '-')
-    {
-        neg = -neg;
-        i++;
-    }
-    while (str[i] != '\0')
-    {
-        res = res * str_base;
-        if (str[i] >= '0' && str[i] <= '9')
-            res = res + str[i] - '0';
-        else if (str[i] >= 'A' && str[i] <= 'Z')
-            res = res + str[i] - '7';
-        else if (str[i] >= 'a' && str[i] <= 'z')
-            res = res + str[i] - 'W';
-		// else
-		// 	return (res * neg);
-        i++;
-    }
-    return (res * neg);
-}
+//     if (str[i] == '-')
+//     {
+//         neg = -neg;
+//         i++;
+//     }
+//     while (str[i] != '\0')
+//     {
+//         res = res * str_base;
+//         if (str[i] >= '0' && str[i] <= '9')
+//             res = res + str[i] - '0';
+//         else if (str[i] >= 'A' && str[i] <= 'Z')
+//             res = res + str[i] - '7';
+//         else if (str[i] >= 'a' && str[i] <= 'z')
+//             res = res + str[i] - 'W';
+// 		// else
+// 		// 	return (res * neg);
+//         i++;
+//     }
+//     return (res * neg);
+// }
 
-#include <stdio.h>
-int main()
-{
-    const char *str = "Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.";
-    int str_base = 16;
+// #include <stdio.h>
+// int main()
+// {
+//     const char *str = "Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.";
+//     int str_base = 16;
 
-    int result = ft_atoi_base(str, str_base);
-    printf("%d\n", result);
+//     int result = ft_atoi_base(str, str_base);
+//     printf("%d\n", result);
 
-    return 0;
-}
+//     return 0;
+// }

@@ -1,35 +1,7 @@
 #include <unistd.h>
 
-// シミュレーター受かるけどテストでは受からない
-
-#include <unistd.h>
-
-void	ft_paramsum(int num)
-{
-	char c;
-	if (num < 10)
-	{
-		c = num + '0';
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_paramsum(num / 10);
-		c = num % 10 + '0';
-		write(1, &c, 1);
-	}
-}
-
-int main(int argc, char **argv)
-{
-	if (argc > 1)
-		ft_paramsum(argc - 1);
-	if (argc == 1)
-		write(1, "0", 1);
-	write(1, "\n", 1);
-	return (0);
-}
-
+// (void)argv; をメインに入れないと受からないから気をつけて！argv使ってないけどわざとだよってコンパイラに伝えてる
+// (void)argv means that "I am aware of unused argv but that's intentional".
 
 // putnbr もう一度確認して
 
@@ -70,4 +42,25 @@ int main(int argc, char **argv)
 		ft_putnbr(argc - 1);
 	write(1, "\n", 1);
 	return (0);
+}
+
+//Lumi's solution
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void putnbr(int n)
+{
+    if (n >= 10)
+        putnbr(n / 10);
+    ft_putchar(n % 10 + '0');
+}
+
+int main(int ac, char **av)
+{
+    (void)av;
+    putnbr(ac - 1);
+    write(1, "\n", 1);
+    return 0;
 }

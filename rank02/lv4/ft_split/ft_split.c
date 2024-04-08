@@ -11,15 +11,17 @@ alocate memory for each elements in 2d array
 int word_count(char *str)
 {
 	int i = 0;
-	int counter = 0;
-	while (str[i] != '\0')
+	int wc = 0;
+	while (str[i])
 	{
-		if (counter == 0 || ((str[i] != ' ' && str[i] != '\t')
-			&& (str[i - 1] == ' ' || str[i - 1] == '\t'))) //一個前が区切り文字だったら
-			counter++;
-		i++;
+		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')) //空白だったら飛ばす
+			i++;
+		if (str[i]) //文字を見つかたらカウントする
+			wc++;
+		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')) //次の空白までiを進める
+			i++;
 	}
-	return (counter);
+	return (wc);
 }
 
 char    **ft_split(char *str)
