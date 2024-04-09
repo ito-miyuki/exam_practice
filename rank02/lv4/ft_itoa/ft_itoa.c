@@ -17,6 +17,8 @@ int count_len(int n)
 
 char	*ft_itoa(int nbr)
 {
+	if (nbr == -2147483648)
+		return("-2147483648\0");
 	char *res;
 	int num_len = count_len(nbr);
 	int i = 0;

@@ -64,13 +64,6 @@ void print_hex(int num)
     write(1, &hex_num[num % 16], 1);
 }
 
-void print_hex(int num)
-{
-    char *hex = "0123456789abcdef";
-    if (16 >= num)
-        print_hex(num / 16);
-    write(1, &hex[num % 16], 1);
-}
 
 int main(int argc, char **argv)
 {

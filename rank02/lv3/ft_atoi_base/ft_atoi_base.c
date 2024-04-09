@@ -23,6 +23,22 @@ int get_digit(char c, int digits_in_base)
 		return (-1);
 }
 
+int get_digit(char c, int base)
+{
+	int max_gidit;
+	if (base <= 10)
+		max_gidit = base + '0';
+	else
+		max_gidit = base - 10 + 'a';
+
+	if (c >= '0' && c <= '9' && c < max_gidit)
+		return (c - '0');
+	else if (c >= 'a' && c <= 'f' && c < max_gidit)
+		return (10 + c  - 'a');
+	else
+		return (-1);
+}
+
 int ft_atoi_base(const char *str, int str_base)
 {
 	int result = 0;
