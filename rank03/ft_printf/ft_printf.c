@@ -134,3 +134,8 @@ int ft_printf(const char *format, ... )
 // 	printf("printf's return value is %d\n", res2);
 // 	return (0);
 // }
+
+// int main()
+// {
+// 	ft_printf("%s\n", "toto");
+// }
