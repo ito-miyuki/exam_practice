@@ -3,6 +3,21 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+/*
+// 自作。returnが楽になるのでおすすめ
+int print_error(char *msg, char *argv)
+{
+	while (*msg)
+		write(2, msg++, 1);
+	if (argv)
+		while(*argv)
+			write(2, argv++, 1);
+	write(2, "\n", 1);
+    return (1);
+}
+
+*/
+
 int err(char *str)
 {
     while (*str)
