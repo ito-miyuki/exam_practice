@@ -1,3 +1,22 @@
+/*
+もしこれを実行したら　./a.out /bin/ls "|" /usr/bin/grep microshell ";" /bin/echo i love my microshell
+argv = {
+    "./a.out",
+    "/bin/ls",
+    "|",
+    "/usr/bin/grep",
+    "microshell",
+    ";",
+    "/bin/echo",
+    "i",
+    "love",
+    "my",
+    "microshell",
+    NULL
+}
+argc = 11
+*/
+
 // it passed Grademe 
 #include <string.h>
 #include <unistd.h>
@@ -34,7 +53,7 @@ int ft_cd(char **argv, int i)
     if (i != 2)
         return (print_error("error: cd: bad arguments", NULL));
     if (chdir(argv[1]) == -1)
-        return (print_error("error: cd: cannot change directory to ", argv[1]));
+        return (print_error("error: cannot change directory to ", argv[1]));
     return (0);
 }
 
